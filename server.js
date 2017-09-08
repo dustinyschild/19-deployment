@@ -10,6 +10,8 @@ const app = express();
 
 require('./lib/mongoose-connect');
 
+app.use(app.static('./index.html'));
+
 app.use(morgan('dev'));
 app.use(cors());
 
