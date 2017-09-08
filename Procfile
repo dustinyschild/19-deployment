@@ -1,1 +1,1 @@
-node ./lab-dustin
+web: node ./lab-dustin
