@@ -4,13 +4,15 @@ node_js:
 sudo: required
 services:
   - mongodb
+env:
+  - PORT=3000 MONGODB_URI=mongodb://localhost/401-dvgram
+before-script:
+  - npm install
 script:
-  - |
-    (for dir in $(find $PWD -maxdepth 2 -name package.json -printf "%h\n"); do
-      cd $dir && npm install && npm run lint && npm test || exit 1
-    done)
+  - npm test
+  - npm run lint
 branches:
   only:
-  - master
+  - HEAD
 notifications:
   email: false
