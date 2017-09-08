@@ -7,7 +7,7 @@ services:
 env:
   - PORT=3000 MONGODB_URI=mongodb://localhost/401-dvgram APP_SECRET=DeltaV
 before-script:
-  - npm install
+  - cd ./lab-dustin && npm install
 script:
   - cd ./lab-dustin && npm test
   - cd ./lab-dustin && npm run lint
