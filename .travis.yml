@@ -6,11 +6,11 @@ services:
   - mongodb
 env:
   - PORT=3000 MONGODB_URI=mongodb://localhost/401-dvgram APP_SECRET=DeltaV
-before-script:
-  - cd ./lab-dustin && npm install
 script:
-  - cd ./lab-dustin && npm test
-  - cd ./lab-dustin && npm run lint
+  - |
+    (for dir in $(find $PWD -maxdepth 2 -name package.json -printf "%h\n"); do
+      cd $dir && npm install && npm test && npm run lint || exit 1
+    done)
 branches:
   only:
   - master
