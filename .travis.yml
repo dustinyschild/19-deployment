@@ -9,8 +9,8 @@ env:
 before-script:
   - cd ./lab-dustin && npm install
 script:
-  - npm test
-  - npm run lint
+  - cd ./lab-dustin && npm test
+  - cd ./lab-dustin && npm run lint
 branches:
   only:
   - master
